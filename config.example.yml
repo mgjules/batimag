@@ -9,7 +9,7 @@ resize:
   # Zero value will resize image proportionally to width.
   # Default value is 0.
   height: 50
-  # Whether to allow for upscaling.
+  # Whether to upscale.
   # Default value is false.
   upscale: true
   # Resize type.

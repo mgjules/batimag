@@ -30,7 +30,7 @@ type Resize struct {
 	// Zero value will resize image proportionally to width.
 	// Default value is 0.
 	Height int `yaml:"height" validate:"gte=0,lte=7680"`
-	// Whether to allow for upscaling.
+	// Whether to upscale.
 	// Default value is false.
 	Upscale bool `yaml:"upscale"`
 	// Resize type.
