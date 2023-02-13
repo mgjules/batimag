@@ -7,15 +7,15 @@ Batimag is short for Batch Imager which applies basic image processing functions
 
 ## Installation
 
+### From Source (recommended)
+
+```shell
+go install github.com/mgjules/batimag@v0.1.0
+```
+
 ### From Binary
 
 Download the corresponding binary for your operating system and architecture from the [releases](https://github.com/mgjules/batimag/releases) page and place it in a `$PATH` directory.
-
-### From Source
-
-```shell
-go install github.com/mgjules/batimag@latest
-```
 
 ## Usage
 
