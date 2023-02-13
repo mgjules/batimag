@@ -19,7 +19,7 @@ jobs:
           go-version: 1.20.x
       - name: Set up extra tools
         run: |
-          sudo apt-get install gcc-mingw-w64
+          sudo apt-get install gcc-mingw-w64 clang llvm-dev uuid-dev libssl-dev libbz2-dev
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
         with:
