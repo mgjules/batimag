@@ -2,10 +2,10 @@ input_dir: "./samples/input"
 output_dir: "./samples/output"
 resize:
   # Desired width in pixels.
-  # Zero value will resize image proportinally to height.
+  # Zero value will resize image proportionally to height.
   width: 100
   # Desired height in pixels.
-  # Zero value will resize image proportinally to width.
+  # Zero value will resize image proportionally to width.
   height: 50
   # Resize type.
   # Accepted values are Normal, Fit and Fill.
