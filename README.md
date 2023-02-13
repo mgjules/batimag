@@ -153,6 +153,8 @@ adjust:
 
 ## Stability
 
-This project follows [SemVer](http://semver.org/) strictly and is considered STABLE.
+This project follows [SemVer](http://semver.org/) strictly and is not yet `v1`.
+
+Breaking changes might be introduced until `v1` is released.
 
 This project follows the [Go Release Policy](https://golang.org/doc/devel/release.html#policy). Each major version of Go is supported until there are two newer major releases.
