@@ -25,11 +25,11 @@ type Resize struct {
 	// Desired width in pixels.
 	// Zero value will resize image proportionally to height.
 	// Default value is 0.
-	Width uint16 `yaml:"width" validate:"gte=0,lte=7680"`
+	Width int `yaml:"width" validate:"gte=0,lte=7680"`
 	// Desired height in pixels.
 	// Zero value will resize image proportionally to width.
 	// Default value is 0.
-	Height uint16 `yaml:"height" validate:"gte=0,lte=7680"`
+	Height int `yaml:"height" validate:"gte=0,lte=7680"`
 	// Resize type.
 	// Accepted values are Normal, Thumbnail, Fit and Fill.
 	// Default value is Normal.

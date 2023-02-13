@@ -109,8 +109,7 @@ var process = &cli.Command{
 					return
 				}
 
-				if (cfg.Resize.Width > 0 && cfg.Resize.Width < uint16(img.Bounds().Dx())) ||
-					(cfg.Resize.Height > 0 && cfg.Resize.Height < uint16(img.Bounds().Dy())) {
+				if cfg.Resize.Width > 0 || cfg.Resize.Height > 0 {
 					var filter imaging.ResampleFilter
 					switch cfg.Resize.Filter {
 					case "Lanczos":
@@ -130,13 +129,23 @@ var process = &cli.Command{
 						return
 					}
 
+					// Prevent upscaling.
+					width := cfg.Resize.Width
+					if width > img.Bounds().Dx() {
+						width = img.Bounds().Dx()
+					}
+					height := cfg.Resize.Height
+					if height > img.Bounds().Dy() {
+						height = img.Bounds().Dy()
+					}
+
 					switch cfg.Resize.Type {
 					case "Normal":
-						img = imaging.Resize(img, int(cfg.Resize.Width), int(cfg.Resize.Height), filter)
+						img = imaging.Resize(img, width, height, filter)
 					case "Thumbnail":
-						img = imaging.Thumbnail(img, int(cfg.Resize.Width), int(cfg.Resize.Height), filter)
+						img = imaging.Thumbnail(img, width, height, filter)
 					case "Fit":
-						img = imaging.Fit(img, int(cfg.Resize.Width), int(cfg.Resize.Height), filter)
+						img = imaging.Fit(img, width, height, filter)
 					case "Fill":
 						var anchor imaging.Anchor
 						switch cfg.Resize.Anchor {
@@ -163,7 +172,7 @@ var process = &cli.Command{
 							return
 						}
 
-						img = imaging.Fill(img, int(cfg.Resize.Width), int(cfg.Resize.Height), anchor, filter)
+						img = imaging.Fill(img, width, height, anchor, filter)
 					default:
 						log.Errorw("Unsupported resize type", "type", cfg.Resize.Type)
 						return
