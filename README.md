@@ -78,70 +78,71 @@ output_dir: "./samples/output"
 resize:
   # Desired width in pixels.
   # Zero value will resize image proportionally to height.
-  # Default value is 0.
+  # Default value: 0.
   width: 100
   # Desired height in pixels.
   # Zero value will resize image proportionally to width.
-  # Default value is 0.
+  # Default value: 0.
   height: 50
   # Whether to upscale.
-  # Default value is false.
+  # Default value: false.
   upscale: true
   # Resize type.
-  # Accepted values are Normal, Thumbnail, Fit and Fill.
-  # Default value is Normal.
+  # Accepted values: Normal, Thumbnail, Fit and Fill.
+  # Default value: Normal.
   type: Normal
   # Resize resampling filter.
-  # Accepted values are Lanczos, CatmullRom, MitchellNetravali, Linear, Box and NearestNeighbor.
-  # Default value is Lanczos.
+  # Accepted values: Lanczos, CatmullRom, MitchellNetravali, Linear, Box and NearestNeighbor.
+  # Default value: Lanczos.
   filter: Lanczos
   # Anchor is used for image alignment when using Resize Type 'Fill'.
-  # Accepted values are Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom and BottomRight.
-  # Default value is Center.
+  # Accepted values: Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom and BottomRight.
+  # Default value: Center.
   anchor: Center
 transform:
-  # Automatically fix orientation after processing.# Default value is false.
+  # Automatically fix orientation after processing.
+  # Default value: false.
   auto_orientation: true
   # Rotate clockwise by certain angle in degrees.
-  # Accepted values are 0 90 180 270.
-  # Default value is 0.
+  # Accepted values: 0 90 180 270.
+  # Default value: 0.
   rotate: 90
   # Flip on a certain axis.
-  # Accepted values are Vertical and Horizontal.
-  # Default value is None.
+  # Accepted values: Vertical and Horizontal.
+  # Default value: None.
   flip: Vertical
 effect:
   # Strength of the gaussian blur effect.
-  # Accepted values are 0.0 to 5.0.
-  # Default value is 0.
+  # Accepted values: 0.0 to 5.0.
+  # Default value: 0.
   gaussian_blur: 2.0
   # Strength of the sharpening effect.
-  # Accepted values are 0.0 to 5.0.
-  # Default value is 0.
+  # Accepted values: 0.0 to 5.0.
+  # Default value: 0.
   sharpen: 1.0
 adjust:
   # Gamma correction.
-  # Accepted values are 0.0 to 5.0.
+  # Accepted values: 0.0 to 5.0.
   # Values less that 1.0 are darker while values greater than 1.0 are lighter.
-  # Default value is 0.
+  # Default value: 0.
   gamma: 0.5
   # Percentage value.
-  # Accepted values are -100 to 100.
+  # Accepted values: -100 to 100.
   # Negative values are grayer.
-  # Default value is 0.
+  # Default value: 0.
   contrast: 50
   # Percentage value.
-  # Accepted values are -100 to 100.
+  # Accepted values: -100 to 100.
   # Lower negative values are darker while higher positive values are lighter.
-  # Default value is 0.
+  # Default value: 0.
   brightness: 50
   # Percentage value.
-  # Accepted values are -100 to 100.
+  # Accepted values: -100 to 100.
   # Negative values decrease image saturation while positive values increase image saturation.
-  # Default value is 0.
+  # Default value: 0.
   saturation: 50
   # Grayscale version.
-  # Default value is false.
+  # Default value: false.
   grayscale: true
 ```
 
