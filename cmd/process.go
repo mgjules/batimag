@@ -67,7 +67,7 @@ var process = &cli.Command{
 		err = fs.WalkDir(os.DirFS(cfg.InputDir), ".", func(path string, d fs.DirEntry, err error) error {
 			inputFilepath := filepath.Join(cfg.InputDir, path)
 
-			log := logger.With("path", inputFilepath)
+			log := logger.With("input path", inputFilepath)
 
 			if err != nil {
 				log.Errorw("Internal", "error", err)
@@ -85,10 +85,16 @@ var process = &cli.Command{
 				return nil
 			}
 
-			log.Debug("Processing file...")
-			defer log.Debug("Finished processing file")
-
 			pool.Go(func() {
+				log.Debug("Processing file...")
+				defer log.Debug("Finished processing file")
+
+				outputFilepath := filepath.Join(cfg.OutputDir, path)
+				if fileExists(outputFilepath) {
+					log.Debugw("Skipping already processed image", "output path", outputFilepath)
+					return
+				}
+
 				img, err := imaging.Open(
 					inputFilepath,
 					imaging.AutoOrientation(cfg.Transform.AutoOrientation),
@@ -212,9 +218,7 @@ var process = &cli.Command{
 					img = imaging.Grayscale(img)
 				}
 
-				outputFilepath := filepath.Join(cfg.OutputDir, path)
 				ext := filepath.Ext(outputFilepath)
-
 				if ext == ".webp" {
 					f, err := os.Create(outputFilepath)
 					if err != nil {
@@ -247,4 +251,13 @@ var process = &cli.Command{
 
 		return nil
 	},
+}
+
+func fileExists(filepath string) bool {
+	info, err := os.Stat(filepath)
+	if os.IsNotExist(err) {
+		return false
+	}
+
+	return !info.IsDir()
 }
