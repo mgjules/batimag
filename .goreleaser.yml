@@ -4,9 +4,6 @@ builds:
   - env:
       - CGO_ENABLED=1
       - >-
-        {{- if eq .Os "darwin" }}
-          {{- if eq .Arch "amd64"}}CC=o64-clang{{- end }}
-        {{- end }}
         {{- if eq .Os "windows" }}
           {{- if eq .Arch "amd64" }}CC=x86_64-w64-mingw32-gcc{{- end }}
         {{- end }}
@@ -17,7 +14,6 @@ builds:
     goos:
       - linux
       - windows
-      - darwin
     goarch:
       - amd64
 archives:
