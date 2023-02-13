@@ -159,6 +159,8 @@ var process = &cli.Command{
 				}
 
 				switch cfg.Transform.Rotate {
+				case 0:
+					img = imaging.Clone(img)
 				case 90:
 					img = imaging.Rotate90(img)
 				case 180:
