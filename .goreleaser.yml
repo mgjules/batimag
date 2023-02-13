@@ -2,7 +2,7 @@ project_name: batimag
 dist: ./bin
 builds:
   - env:
-      - CGO_ENABLED=0
+      - CGO_ENABLED=1
     flags:
       - -trimpath
     ldflags:
@@ -11,8 +11,6 @@ builds:
       - linux
       - windows
       - darwin
-    goarch:
-      - amd64
 archives:
   - files:
       - LICENSE
