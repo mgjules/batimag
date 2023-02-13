@@ -5,6 +5,7 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
+	"time"
 
 	"github.com/chai2010/webp"
 	"github.com/disintegration/imaging"
@@ -12,6 +13,7 @@ import (
 	"github.com/mgjules/batimag/logger"
 	"github.com/sourcegraph/conc/pool"
 	"github.com/urfave/cli/v2"
+	"go.uber.org/zap"
 
 	// Add webp support.
 	_ "golang.org/x/image/webp"
@@ -63,6 +65,9 @@ var process = &cli.Command{
 			}
 		}
 
+		logger.Debug("Processing images...")
+		defer timer(logger.SugaredLogger, "Finished processing images")()
+
 		pool := pool.New().WithMaxGoroutines(500)
 		err = fs.WalkDir(os.DirFS(cfg.InputDir), ".", func(path string, d fs.DirEntry, err error) error {
 			inputFilepath := filepath.Join(cfg.InputDir, path)
@@ -86,8 +91,8 @@ var process = &cli.Command{
 			}
 
 			pool.Go(func() {
-				log.Debug("Processing file...")
-				defer log.Debug("Finished processing file")
+				log.Debug("Processing image...")
+				defer timer(log, "Finished processing image")()
 
 				outputFilepath := filepath.Join(cfg.OutputDir, path)
 				if fileExists(outputFilepath) {
@@ -260,4 +265,11 @@ func fileExists(filepath string) bool {
 	}
 
 	return !info.IsDir()
+}
+
+func timer(logger *zap.SugaredLogger, msg string) func() {
+	start := time.Now()
+	return func() {
+		logger.Debugw(msg, "elasped", time.Since(start))
+	}
 }
