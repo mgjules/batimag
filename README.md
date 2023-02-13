@@ -5,6 +5,9 @@
 
 Batimag is short for Batch Imager which applies basic image processing functions to a batch of images in a specific directory recursively.
 
+JPG/JPEG, GIF, PNG, TIF/TIFF, BMP and WEBP images are supported.
+
+
 ## Installation
 
 ### From Source (recommended)
