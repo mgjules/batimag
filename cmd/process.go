@@ -129,13 +129,13 @@ var process = &cli.Command{
 						return
 					}
 
-					// Prevent upscaling.
+					// Handle upscaling.
 					width := cfg.Resize.Width
-					if width > img.Bounds().Dx() {
+					if !cfg.Resize.Upscale && width > img.Bounds().Dx() {
 						width = img.Bounds().Dx()
 					}
 					height := cfg.Resize.Height
-					if height > img.Bounds().Dy() {
+					if !cfg.Resize.Upscale && height > img.Bounds().Dy() {
 						height = img.Bounds().Dy()
 					}
 

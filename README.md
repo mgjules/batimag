@@ -10,7 +10,7 @@ Batimag is short for Batch Imager which applies basic image processing functions
 ### From Source (recommended)
 
 ```shell
-go install github.com/mgjules/batimag@v0.1.2
+go install github.com/mgjules/batimag@v0.1.3
 ```
 
 ### From Binary
@@ -84,6 +84,9 @@ resize:
   # Zero value will resize image proportionally to width.
   # Default value is 0.
   height: 50
+  # Whether to allow for upscaling.
+  # Default value is false.
+  upscale: true
   # Resize type.
   # Accepted values are Normal, Thumbnail, Fit and Fill.
   # Default value is Normal.
