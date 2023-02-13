@@ -150,3 +150,9 @@ adjust:
 - [github.com/mcuadros/go-defaults](https://github.com/mcuadros/go-defaults) - Struct default values.
 - [github.com/go-playground/validator/v10](https://github.com/go-playground/validator) - Struct validation.
 - [github.com/urfave/cli/v2](https://github.com/urfave/cli) - CLI.
+
+## Stability
+
+This project follows [SemVer](http://semver.org/) strictly and is considered STABLE.
+
+This project follows the [Go Release Policy](https://golang.org/doc/devel/release.html#policy). Each major version of Go is supported until there are two newer major releases.
