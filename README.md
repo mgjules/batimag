@@ -83,7 +83,7 @@ resize:
   # Zero value will resize image proportionally to width.
   height: 50
   # Resize type.
-  # Accepted values are Normal, Fit and Fill.
+  # Accepted values are Normal, Thumbnail, Fit and Fill.
   # Default value is Normal.
   type: Normal
   # Resize resampling filter.
