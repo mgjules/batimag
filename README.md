@@ -10,7 +10,7 @@ Batimag is short for Batch Imager which applies basic image processing functions
 ### From Source (recommended)
 
 ```shell
-go install github.com/mgjules/batimag@v0.1.1
+go install github.com/mgjules/batimag@v0.1.2
 ```
 
 ### From Binary

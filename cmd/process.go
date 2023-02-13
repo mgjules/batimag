@@ -109,7 +109,8 @@ var process = &cli.Command{
 					return
 				}
 
-				if cfg.Resize.Width > 0 || cfg.Resize.Height > 0 {
+				if (cfg.Resize.Width > 0 && cfg.Resize.Width < uint16(img.Bounds().Dx())) ||
+					(cfg.Resize.Height > 0 && cfg.Resize.Height < uint16(img.Bounds().Dy())) {
 					var filter imaging.ResampleFilter
 					switch cfg.Resize.Filter {
 					case "Lanczos":
