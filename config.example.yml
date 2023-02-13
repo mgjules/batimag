@@ -3,9 +3,11 @@ output_dir: "./samples/output"
 resize:
   # Desired width in pixels.
   # Zero value will resize image proportionally to height.
+  # Default value is 0.
   width: 100
   # Desired height in pixels.
   # Zero value will resize image proportionally to width.
+  # Default value is 0.
   height: 50
   # Resize type.
   # Accepted values are Normal, Thumbnail, Fit and Fill.
@@ -20,37 +22,46 @@ resize:
   # Default value is Center.
   anchor: Center
 transform:
-  # Automatically fix orientation after processing.
+  # Automatically fix orientation after processing.# Default value is false.
   auto_orientation: true
-  # Rotate by certain angle in degrees.
-  # Accepted values are 90 180 270.
+  # Rotate clockwise by certain angle in degrees.
+  # Accepted values are 0 90 180 270.
+  # Default value is 0.
   rotate: 90
   # Flip on a certain axis.
   # Accepted values are Vertical and Horizontal.
+  # Default value is None.
   flip: Vertical
 effect:
   # Strength of the gaussian blur effect.
   # Accepted values are 0.0 to 5.0.
+  # Default value is 0.
   gaussian_blur: 2.0
   # Strength of the sharpening effect.
   # Accepted values are 0.0 to 5.0.
+  # Default value is 0.
   sharpen: 1.0
 adjust:
   # Gamma correction.
   # Accepted values are 0.0 to 5.0.
   # Values less that 1.0 are darker while values greater than 1.0 are lighter.
+  # Default value is 0.
   gamma: 0.5
   # Percentage value.
   # Accepted values are -100 to 100.
   # Negative values are grayer.
+  # Default value is 0.
   contrast: 50
   # Percentage value.
   # Accepted values are -100 to 100.
   # Lower negative values are darker while higher positive values are lighter.
+  # Default value is 0.
   brightness: 50
   # Percentage value.
   # Accepted values are -100 to 100.
   # Negative values decrease image saturation while positive values increase image saturation.
+  # Default value is 0.
   saturation: 50
   # Grayscale version.
+  # Default value is false.
   grayscale: true

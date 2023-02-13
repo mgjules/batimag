@@ -22,9 +22,13 @@ type Config struct {
 
 // Resize represents a bunch of opinionated image resize options.
 type Resize struct {
-	// Resize width.
+	// Desired width in pixels.
+	// Zero value will resize image proportionally to height.
+	// Default value is 0.
 	Width uint16 `yaml:"width" validate:"gte=0,lte=7680"`
-	// Resize height.
+	// Desired height in pixels.
+	// Zero value will resize image proportionally to width.
+	// Default value is 0.
 	Height uint16 `yaml:"height" validate:"gte=0,lte=7680"`
 	// Resize type.
 	// Accepted values are Normal, Thumbnail, Fit and Fill.
@@ -42,26 +46,56 @@ type Resize struct {
 
 // Transform represents a bunch of opinionated image transform options.
 type Transform struct {
-	AutoOrientation bool   `yaml:"auto_orientation"`
-	Rotate          uint16 `yaml:"rotate" validate:"oneof=0 90 180 270"`
-	Flip            string `yaml:"flip" default:"None" validate:"oneof=None Vertical Horizontal"`
+	// Automatically fix orientation after processing.
+	// Default value is false.
+	AutoOrientation bool `yaml:"auto_orientation"`
+	// Rotate clockwise by certain angle in degrees.
+	// Accepted values are 0 90 180 270.
+	// Default value is 0.
+	Rotate uint16 `yaml:"rotate" validate:"oneof=0 90 180 270"`
+	// Flip on a certain axis.
+	// Accepted values are Vertical and Horizontal.
+	// Default value is None.
+	Flip string `yaml:"flip" default:"None" validate:"oneof=None Vertical Horizontal"`
 }
 
 // Effect represents a bunch of opinionated image effect options.
 type Effect struct {
 	// Sigma parameter allows to control the strength of the blurring effect.
+	// Accepted values are 0.0 to 5.0.
+	// Default value is 0.
 	GaussianBlur float64 `yaml:"gaussian_blur" validate:"gte=0.0,lte=5.0"`
 	// Sharpen uses gaussian function internally.
+	// Accepted values are 0.0 to 5.0.
+	// Default value is 0.
 	Sharpen float64 `yaml:"sharpen" validate:"gte=0.0,lte=5.0"`
 }
 
 // Adjust represents a bunch of opinionated image adjust options.
 type Adjust struct {
-	Gamma      float64 `yaml:"gamma" validate:"gte=0.0,lte=5.0"`
-	Contrast   float64 `yaml:"contrast" validate:"gte=-100,lte=100"`
+	// Gamma correction.
+	// Accepted values are 0.0 to 5.0.
+	// Values less that 1.0 are darker while values greater than 1.0 are lighter.
+	// Default value is 0.
+	Gamma float64 `yaml:"gamma" validate:"gte=0.0,lte=5.0"`
+	// Percentage value.
+	// Accepted values are -100 to 100.
+	// Negative values are grayer.
+	// Default value is 0.
+	Contrast float64 `yaml:"contrast" validate:"gte=-100,lte=100"`
+	// Percentage value.
+	// Accepted values are -100 to 100.
+	// Lower negative values are darker while higher positive values are lighter.
+	// Default value is 0.
 	Brightness float64 `yaml:"brightness" validate:"gte=-100,lte=100"`
+	// Percentage value.
+	// Accepted values are -100 to 100.
+	// Negative values decrease image saturation while positive values increase image saturation.
+	// Default value is 0.
 	Saturation float64 `yaml:"saturation" validate:"gte=-100,lte=100"`
-	Grayscale  bool    `yaml:"grayscale"`
+	// Grayscale version.
+	// Default value is false.
+	Grayscale bool `yaml:"grayscale"`
 }
 
 // Load loads the configuration for a given path.
