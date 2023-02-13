@@ -70,7 +70,7 @@ batimag process --clean --debug
 
 ## Configuration
 
-Example configuration (see [config.example.yml](config.example.yml):
+Example configuration (see [config.example.yml](config.example.yml)):
 
 ```yaml
 input_dir: "./samples/input"
@@ -141,3 +141,12 @@ adjust:
   # Default value is false.
   grayscale: true
 ```
+
+## Credits
+
+- [github.com/disintegration/imaging](https://github.com/disintegration/imaging) - Image processing functions.
+- [github.com/chai2010/webp](https://github.com/chai2010/webp) - Webp support.
+- [github.com/sourcegraph/conc](https://github.com/sourcegraph/conc) - Concurrency made easy.
+- [github.com/mcuadros/go-defaults](https://github.com/mcuadros/go-defaults) - Struct default values.
+- [github.com/go-playground/validator/v10](https://github.com/go-playground/validator) - Struct validation.
+- [github.com/urfave/cli/v2](https://github.com/urfave/cli) - CLI.
