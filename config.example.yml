@@ -14,11 +14,11 @@ resize:
   # Resize resampling filter.
   # Accepted values are Lanczos, CatmullRom, MitchellNetravali, Linear, Box and NearestNeighbor.
   # Default value is Lanczos.
-  Filter: Lanczos
+  filter: Lanczos
   # Anchor is used for image alignment when using Resize Type 'Fill'.
   # Accepted values are Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom and BottomRight.
   # Default value is Center.
-  Anchor: Center
+  anchor: Center
 transform:
   # Automatically fix orientation after processing.
   auto_orientation: true

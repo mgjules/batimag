@@ -1,6 +1,21 @@
 # batimag
 
+[![Go Doc](https://img.shields.io/badge/godoc-reference-blue.svg?style=for-the-badge)](https://godoc.org/github.com/mgjules/batimag)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge)](LICENSE)
+
 Batimag is short for Batch Imager which applies basic image processing functions to a batch of images in a specific directory recursively.
+
+## Installation
+
+### From Binary
+
+Download latest binary from releases and place inside a `$PATH` directory.
+
+### From Source
+
+```shell
+go install github.com/mgjules/batimag@latest
+```
 
 ## Usage
 
@@ -74,11 +89,11 @@ resize:
   # Resize resampling filter.
   # Accepted values are Lanczos, CatmullRom, MitchellNetravali, Linear, Box and NearestNeighbor.
   # Default value is Lanczos.
-  Filter: Lanczos
+  filter: Lanczos
   # Anchor is used for image alignment when using Resize Type 'Fill'.
   # Accepted values are Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom and BottomRight.
   # Default value is Center.
-  Anchor: Center
+  anchor: Center
 transform:
   # Automatically fix orientation after processing.
   auto_orientation: true
