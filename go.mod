@@ -10,7 +10,7 @@ require (
 	github.com/sourcegraph/conc v0.2.0
 	github.com/urfave/cli/v2 v2.24.3
 	go.uber.org/zap v1.24.0
-	golang.org/x/image v0.4.0
+	golang.org/x/image v0.5.0
 	gopkg.in/yaml.v2 v2.4.0
 )
 
