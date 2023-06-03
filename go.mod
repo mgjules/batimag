@@ -8,7 +8,7 @@ require (
 	github.com/go-playground/validator/v10 v10.14.0
 	github.com/mcuadros/go-defaults v1.2.0
 	github.com/sourcegraph/conc v0.3.0
-	github.com/urfave/cli/v2 v2.25.3
+	github.com/urfave/cli/v2 v2.25.5
 	go.uber.org/zap v1.24.0
 	golang.org/x/image v0.7.0
 	gopkg.in/yaml.v2 v2.4.0
