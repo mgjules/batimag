@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/chai2010/webp v1.1.1
 	github.com/disintegration/imaging v1.6.2
-	github.com/go-playground/validator/v10 v10.14.0
+	github.com/go-playground/validator/v10 v10.15.0
 	github.com/mcuadros/go-defaults v1.2.0
 	github.com/sourcegraph/conc v0.3.0
 	github.com/urfave/cli/v2 v2.25.3
